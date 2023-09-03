@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddc111b04d9a76a4eb3ecc1cf1526d6e, type: 3}
+  m_Name: NPC_woman_1
+  m_EditorClassIdentifier: 
+  actor: {fileID: 6064230654456854020, guid: f2bf38daca068f34da13bb0dead529b8, type: 3}
+  speakerSprite: {fileID: 0}
+  sentence: 
+  dialogues:
+  - actorName: NPC_Woman_1
+    profile: {fileID: -791728324, guid: df3b57777db00b34c8aec35379923420, type: 3}
+    sentence:
+      portuguese: "Ol\xE1, tudo bem?"
+      english: 
+      french: 
+  - actorName: Hero
+    profile: {fileID: 1092181028, guid: a4a72fff8cbd0ca4db0be50d37039ec3, type: 3}
+    sentence:
+      portuguese: "Oi mo\xE7a, tudo! Em que posso te ajudar?"
+      english: 
+      french: 
+  - actorName: NPC_Woman_1
+    profile: {fileID: -791728324, guid: df3b57777db00b34c8aec35379923420, type: 3}
+    sentence:
+      portuguese: "N\xE3o sei, perdi minha mem\xF3ria. Acho que o monstro comedor
+        de mem\xF3rias que roubou minhas mem\xF3rias. Voc\xEA pode me ajudar?"
+      english: 
+      french: 
+  - actorName: Hero
+    profile: {fileID: 1092181028, guid: a4a72fff8cbd0ca4db0be50d37039ec3, type: 3}
+    sentence:
+      portuguese: "S\xF3 bora !"
+      english: 
+      french: 

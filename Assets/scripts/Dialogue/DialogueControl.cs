@@ -1,0 +1,70 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class DialogueControl : MonoBehaviour
+{
+
+    [Header("Components")]
+    public GameObject dialogueObj;
+    public Image profileSprite;
+    public TextMeshProUGUI speechText;
+    public Text actorNameText;
+
+    [Header("Settings")]
+    public float typingSpeed;
+    private bool _isShowing;
+    private int index;
+    private string[] _sentences;
+
+    public static DialogueControl instance;
+
+    // Primeiro life cycle - Inicia antes do Start
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+
+    }
+
+    // Coroutine
+    IEnumerator TypeSentence()
+    {
+        foreach (char letter in _sentences[index].ToCharArray())
+        {
+            // Criar texto com cada letra da frase
+            speechText.text += letter;
+
+            // Define tempo para cada letra aparecer
+            yield return new WaitForSeconds(typingSpeed);
+        }
+    }
+
+    // Pular fala
+    public void NextSentence()
+    {
+
+    }
+
+    // Cta to show speech
+    public void Speech(string[] sentences)
+    {
+        if (!_isShowing)
+        {
+            dialogueObj.SetActive(true);
+            _sentences = sentences;
+            StartCoroutine(TypeSentence());
+            _isShowing = true;
+        }
+    }
+}
