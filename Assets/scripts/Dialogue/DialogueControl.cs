@@ -25,7 +25,9 @@ public class DialogueControl : MonoBehaviour
 
     [Header("Settings")]
     public float typingSpeed;
+    // [HideInspector] public bool isShowing;
     private bool _isShowing;
+    public bool IsShowing { get => _isShowing; set => _isShowing = value; }
     private int index;
     private string[] _sentences;
 
@@ -44,7 +46,10 @@ public class DialogueControl : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.E) && _isShowing)
+        {
+            NextSentence();
+        }
     }
 
     // Coroutine

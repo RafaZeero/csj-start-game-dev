@@ -22,7 +22,6 @@ public class DialogueInit : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && playerHit)
         {
-            Debug.Log(sentences.ToArray());
             DialogueControl.instance.Speech(sentences.ToArray());
         }
     }
