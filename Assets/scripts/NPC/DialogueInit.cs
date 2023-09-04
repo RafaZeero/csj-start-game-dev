@@ -31,7 +31,22 @@ public class DialogueInit : MonoBehaviour
     {
         for (int i = 0; i < dialogue.dialogues.Count; i++)
         {
-            sentences.Add(dialogue.dialogues[i].sentence.portuguese);
+            switch (DialogueControl.instance.language)
+            {
+                case DialogueControl.idiom.portuguese:
+                    sentences.Add(dialogue.dialogues[i].sentence.portuguese);
+                    break;
+                case DialogueControl.idiom.english:
+                    sentences.Add(dialogue.dialogues[i].sentence.english);
+                    break;
+                case DialogueControl.idiom.french:
+                    sentences.Add(dialogue.dialogues[i].sentence.french);
+                    break;
+                default:
+                    sentences.Add(dialogue.dialogues[i].sentence.portuguese);
+                    break;
+
+            }
         }
     }
 
@@ -53,7 +68,6 @@ public class DialogueInit : MonoBehaviour
         else
         {
             playerHit = false;
-            DialogueControl.instance.dialogueObj.SetActive(false);
         }
     }
 

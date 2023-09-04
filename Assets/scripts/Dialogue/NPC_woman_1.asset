@@ -20,24 +20,24 @@ MonoBehaviour:
     profile: {fileID: -791728324, guid: df3b57777db00b34c8aec35379923420, type: 3}
     sentence:
       portuguese: "Ol\xE1, tudo bem?"
-      english: 
-      french: 
+      english: Hey, what's up?
+      french: "Bonjour, \xE7a va?"
   - actorName: Hero
     profile: {fileID: 1092181028, guid: a4a72fff8cbd0ca4db0be50d37039ec3, type: 3}
     sentence:
       portuguese: "Oi mo\xE7a, tudo! Em que posso te ajudar?"
-      english: 
-      french: 
+      english: Hey lass, how can I help you?
+      french: Madmoiselle, je peux t'aide?
   - actorName: NPC_Woman_1
     profile: {fileID: -791728324, guid: df3b57777db00b34c8aec35379923420, type: 3}
     sentence:
       portuguese: "N\xE3o sei, perdi minha mem\xF3ria. Acho que o monstro comedor
         de mem\xF3rias que roubou minhas mem\xF3rias. Voc\xEA pode me ajudar?"
-      english: 
-      french: 
+      english: I don't know, I think I lost my memory
+      french: Je suis perdu ma memoire, aide-moi!
   - actorName: Hero
     profile: {fileID: 1092181028, guid: a4a72fff8cbd0ca4db0be50d37039ec3, type: 3}
     sentence:
       portuguese: "S\xF3 bora !"
-      english: 
-      french: 
+      english: Let's go !
+      french: Allons-y !

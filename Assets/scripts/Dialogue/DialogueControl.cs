@@ -7,6 +7,16 @@ using UnityEngine.UI;
 public class DialogueControl : MonoBehaviour
 {
 
+    [System.Serializable]
+    public enum idiom
+    {
+        portuguese,
+        english,
+        french
+    }
+
+    public idiom language;
+
     [Header("Components")]
     public GameObject dialogueObj;
     public Image profileSprite;
@@ -53,7 +63,24 @@ public class DialogueControl : MonoBehaviour
     // Pular fala
     public void NextSentence()
     {
-
+        // Mostrou o texto completo
+        if (speechText.text == _sentences[index])
+        {
+            if (index < _sentences.Length - 1)
+            {
+                index++;
+                speechText.text = "";
+                StartCoroutine(TypeSentence());
+            }
+            else
+            {
+                speechText.text = "";
+                index = 0;
+                dialogueObj.SetActive(false);
+                _sentences = null;
+                _isShowing = false;
+            }
+        }
     }
 
     // Cta to show speech
