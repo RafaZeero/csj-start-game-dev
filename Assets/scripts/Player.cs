@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private float _initialSpeed;
     private bool _isRunning;
     private bool _isRolling;
+    private bool _isChopping;
 
     // Reference the body
     private Rigidbody2D rig;
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
         get { return _isRolling; }
         set { _isRolling = value; }
     }
+    public bool IsChopping { get => _isChopping; set => _isChopping = value; }
+
 
     private void Start()
     {
@@ -48,6 +51,7 @@ public class Player : MonoBehaviour
         OnInput();
         OnRun();
         OnRoll();
+        OnChop();
     }
 
     private void FixedUpdate()
@@ -88,6 +92,7 @@ public class Player : MonoBehaviour
 
     void OnRoll()
     {
+        // Right click
         if (Input.GetMouseButtonDown(1))
         {
             _isRolling = true;
@@ -99,6 +104,20 @@ public class Player : MonoBehaviour
         }
     }
     #endregion
+
+    void OnChop()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _isChopping = true;
+            _speed = 0;
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            _isChopping = false;
+            _speed = _initialSpeed;
+        }
+    }
     void Jump() { }
     void Attack() { }
 

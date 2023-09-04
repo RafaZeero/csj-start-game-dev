@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerAnim : MonoBehaviour
@@ -34,13 +35,17 @@ public class PlayerAnim : MonoBehaviour
             }
             else
             {
-
                 anim.SetInteger("Transition", 1);
             }
         }
         else
         {
             anim.SetInteger("Transition", 0);
+        }
+
+        if (player.IsChopping)
+        {
+            anim.SetInteger("Transition", 3);
         }
 
         // if player direction equals 0 I want it to be the last angle, so the player doesn't swap directions if idle
@@ -52,7 +57,6 @@ public class PlayerAnim : MonoBehaviour
         {
             transform.eulerAngles = new Vector2(0, 180);
         }
-
     }
 
     void OnRun()
@@ -60,11 +64,6 @@ public class PlayerAnim : MonoBehaviour
         if (player.IsRunning)
         {
             anim.SetInteger("Transition", 2);
-        }
-        else
-        {
-            anim.SetInteger("Transition", 0);
-
         }
 
     }

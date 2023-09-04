@@ -22,12 +22,8 @@ public class NPC : MonoBehaviour
     void Update()
     {
         IsWalkingAnimation();
-
         OnMove();
         MovingThroughPaths();
-
-
-
     }
 
     void IsWalkingAnimation()
