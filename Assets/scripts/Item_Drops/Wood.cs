@@ -24,6 +24,7 @@ public class Wood : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // Save item in inventory
+            collision.AddComponent<PlayerItems>().TotalWood++;
             Destroy(gameObject);
         }
     }
