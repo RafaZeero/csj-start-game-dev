@@ -9,11 +9,12 @@ public class Tree : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject woodPrefab;
     [SerializeField] private int totalWood;
+    [SerializeField] private ParticleSystem leafs;
 
 
     private void OnTriggerEnter2D(Collider2D collison)
     {
-        if (collison.CompareTag("Axe"))
+        if (treeHealth > 0 && collison.CompareTag("Axe"))
         {
             OnHit();
         }
@@ -24,6 +25,7 @@ public class Tree : MonoBehaviour
         treeHealth--;
 
         anim.SetTrigger("IsHit");
+        leafs.Play();
 
         if (treeHealth <= 0)
         {
