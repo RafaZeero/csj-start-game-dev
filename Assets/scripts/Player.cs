@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private bool _isRunning;
     private bool _isRolling;
     private bool _isChopping;
+    private bool _isDigging;
 
     // Reference the body
     private Rigidbody2D rig;
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
         set { _isRolling = value; }
     }
     public bool IsChopping { get => _isChopping; set => _isChopping = value; }
+    public bool IsDigging { get => _isDigging; set => _isDigging = value; }
 
 
     private void Start()
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour
         OnRun();
         OnRoll();
         OnChop();
+        OnDig();
     }
 
     private void FixedUpdate()
@@ -115,6 +118,20 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E))
         {
             _isChopping = false;
+            _speed = _initialSpeed;
+        }
+    }
+
+    void OnDig()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            _isDigging = true;
+            _speed = 0;
+        }
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            _isDigging = false;
             _speed = _initialSpeed;
         }
     }

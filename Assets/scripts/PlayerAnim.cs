@@ -48,6 +48,11 @@ public class PlayerAnim : MonoBehaviour
             anim.SetInteger("Transition", 3);
         }
 
+        if (player.IsDigging)
+        {
+            anim.SetInteger("Transition", 4);
+        }
+
         // if player direction equals 0 I want it to be the last angle, so the player doesn't swap directions if idle
         if (player.Direction.x > 0)
         {
