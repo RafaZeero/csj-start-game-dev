@@ -7,8 +7,7 @@ public class Dig : MonoBehaviour
 
     [SerializeField] private float digToHole;
     [SerializeField] private Animator anim;
-    [SerializeField] private GameObject crop;
-    [SerializeField] private GameObject totalCrop;
+    [SerializeField] private Sprite crop;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

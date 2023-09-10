@@ -14,32 +14,19 @@ public class Player : MonoBehaviour
     private bool _isChopping;
     private bool _isDigging;
 
+    private int _handlingObj = 1;
+
     // Reference the body
     private Rigidbody2D rig;
     // Reference the direction movements
     private Vector2 _direction;
 
     // Access direction
-    public Vector2 Direction
-    {
-        get { return _direction; }
-        set { _direction = value; }
-    }
-
-    public bool IsRunning
-    {
-        get { return _isRunning; }
-        set { _isRunning = value; }
-    }
-
-    public bool IsRolling
-    {
-        get { return _isRolling; }
-        set { _isRolling = value; }
-    }
+    public Vector2 Direction { get => _direction; set => _direction = value; }
+    public bool IsRunning { get => _isRunning; set => _isRunning = value; }
+    public bool IsRolling { get => _isRolling; set => _isRolling = value; }
     public bool IsChopping { get => _isChopping; set => _isChopping = value; }
     public bool IsDigging { get => _isDigging; set => _isDigging = value; }
-
 
     private void Start()
     {
@@ -49,6 +36,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        ChangeHandObj();
+
         // +1 if RIGHT or UP, -1 if LEFT or DOWN
         OnInput();
         OnRun();
@@ -96,44 +85,58 @@ public class Player : MonoBehaviour
     void OnRoll()
     {
         // Right click
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             _isRolling = true;
         }
 
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             _isRolling = false;
         }
     }
     #endregion
-
+    #region Actions
     void OnChop()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (_handlingObj == 1)
         {
-            _isChopping = true;
-            _speed = 0;
-        }
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            _isChopping = false;
-            _speed = _initialSpeed;
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _isChopping = true;
+                _speed = 0;
+            }
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                _isChopping = false;
+                _speed = _initialSpeed;
+            }
         }
     }
 
     void OnDig()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (_handlingObj == 2)
         {
-            _isDigging = true;
-            _speed = 0;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _isDigging = true;
+                _speed = 0;
+            }
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                _isDigging = false;
+                _speed = _initialSpeed;
+            }
         }
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-            _isDigging = false;
-            _speed = _initialSpeed;
-        }
+    }
+    #endregion
+    void ChangeHandObj()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { _handlingObj = 1; }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { _handlingObj = 2; }
+        if (Input.GetKeyDown(KeyCode.Alpha3)) { _handlingObj = 3; }
     }
     void Jump() { }
     void Attack() { }
