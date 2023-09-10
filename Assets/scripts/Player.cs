@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int hp;
+    public PlayerItems playerItems;
     [SerializeField] private float _speed;
     [SerializeField] private float _runSpeed;
     private float _initialSpeed;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     private bool _isRolling;
     private bool _isChopping;
     private bool _isDigging;
+    private bool _isWatering;
 
     private int _handlingObj = 1;
 
@@ -27,9 +29,11 @@ public class Player : MonoBehaviour
     public bool IsRolling { get => _isRolling; set => _isRolling = value; }
     public bool IsChopping { get => _isChopping; set => _isChopping = value; }
     public bool IsDigging { get => _isDigging; set => _isDigging = value; }
+    public bool IsWatering { get => _isWatering; set => _isWatering = value; }
 
     private void Start()
     {
+        playerItems = GetComponent<PlayerItems>();
         rig = GetComponent<Rigidbody2D>();
         _initialSpeed = _speed;
     }
@@ -44,6 +48,7 @@ public class Player : MonoBehaviour
         OnRoll();
         OnChop();
         OnDig();
+        OnWatering();
     }
 
     private void FixedUpdate()
@@ -127,6 +132,23 @@ public class Player : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.E))
             {
                 _isDigging = false;
+                _speed = _initialSpeed;
+            }
+        }
+    }
+    void OnWatering()
+    {
+        if (_handlingObj == 3)
+        {
+            if (Input.GetKeyDown(KeyCode.E) && playerItems.CurrentWater > 0)
+            {
+                _isWatering = true;
+                _speed = 0;
+                playerItems.CurrentWater--;
+            }
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                _isWatering = false;
                 _speed = _initialSpeed;
             }
         }
