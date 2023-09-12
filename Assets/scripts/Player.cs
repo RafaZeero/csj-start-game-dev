@@ -144,12 +144,16 @@ public class Player : MonoBehaviour
             {
                 _isWatering = true;
                 _speed = 0;
-                playerItems.CurrentWater--;
             }
-            if (Input.GetKeyUp(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.E) || playerItems.CurrentWater <= 0)
             {
                 _isWatering = false;
                 _speed = _initialSpeed;
+            }
+
+            if (_isWatering)
+            {
+                playerItems.CurrentWater -= 0.01f;
             }
         }
     }
