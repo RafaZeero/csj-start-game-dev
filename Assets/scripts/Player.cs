@@ -16,7 +16,10 @@ public class Player : MonoBehaviour
     private bool _isDigging;
     private bool _isWatering;
 
-    private int _handlingObj = 1;
+    [HideInInspector] public int handlingObj = 0;
+    // [HideInInspector] public int handlingObj;
+
+    // public int HandlingObj { get => _handlingObj; set => _handlingObj = value; }
 
     // Reference the body
     private Rigidbody2D rig;
@@ -104,7 +107,7 @@ public class Player : MonoBehaviour
     #region Actions
     void OnChop()
     {
-        if (_handlingObj == 1)
+        if (handlingObj == 0)
         {
 
             if (Input.GetKeyDown(KeyCode.E))
@@ -122,7 +125,7 @@ public class Player : MonoBehaviour
 
     void OnDig()
     {
-        if (_handlingObj == 2)
+        if (handlingObj == 1)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -138,7 +141,7 @@ public class Player : MonoBehaviour
     }
     void OnWatering()
     {
-        if (_handlingObj == 3)
+        if (handlingObj == 2)
         {
             if (Input.GetKeyDown(KeyCode.E) && playerItems.CurrentWater > 0)
             {
@@ -160,9 +163,9 @@ public class Player : MonoBehaviour
     #endregion
     void ChangeHandObj()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { _handlingObj = 1; }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) { _handlingObj = 2; }
-        if (Input.GetKeyDown(KeyCode.Alpha3)) { _handlingObj = 3; }
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { handlingObj = 0; }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { handlingObj = 1; }
+        if (Input.GetKeyDown(KeyCode.Alpha3)) { handlingObj = 2; }
     }
     void Jump() { }
     void Attack() { }

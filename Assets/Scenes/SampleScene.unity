@@ -3200,7 +3200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 339.7, y: 173.9}
+  m_AnchoredPosition: {x: 344.3, y: 174}
   m_SizeDelta: {x: 87.5, y: 87.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &258583339
@@ -3216,14 +3216,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1892525975, guid: c121f75f1309ab1408bf36ecd87c8f5d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3105dc25db1564d49adace9d477339c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4697,7 +4697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentWood: 0
-  _currentWater: 5
+  _currentWater: 0
   _currentCrop: 0
 --- !u!1 &596229027
 GameObject:
@@ -45026,7 +45026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.2, y: -90.494865}
+  m_AnchoredPosition: {x: -8, y: -90.494865}
   m_SizeDelta: {x: 112.5, y: 118.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1168009334
@@ -45405,7 +45405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -46136,7 +46136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 274.5, y: 173.9}
+  m_AnchoredPosition: {x: 276.4, y: 173.9}
   m_SizeDelta: {x: 81.25, y: 81.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1581041477
@@ -46152,14 +46152,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 466360965, guid: c121f75f1309ab1408bf36ecd87c8f5d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 487bd1f61a7671c41a430c7c76f93d5f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -58878,7 +58878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -90.494865}
+  m_AnchoredPosition: {x: -1, y: -90.494865}
   m_SizeDelta: {x: 112.5, y: 118.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758973927
@@ -58951,6 +58951,11 @@ MonoBehaviour:
   waterUIBar: {fileID: 1063757798}
   woodUIBar: {fileID: 487170415}
   cropUIBar: {fileID: 0}
+  toolsUI:
+  - {fileID: 1405637755}
+  - {fileID: 1581041477}
+  - {fileID: 258583339}
+  selectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1759471543
 Transform:
   m_ObjectHideFlags: 0
