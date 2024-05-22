@@ -21,6 +21,7 @@ public class Water : MonoBehaviour
     {
         if (detectPlayer && Input.GetKeyDown(KeyCode.E))
         {
+
             player.CheckWaterLimit(waterAmount);
         }
     }

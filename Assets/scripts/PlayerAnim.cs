@@ -58,6 +58,17 @@ public class PlayerAnim : MonoBehaviour
             anim.SetInteger("Transition", 5);
         }
 
+        if (player.IsCasting)
+        {
+            anim.SetTrigger("IsCasting");
+
+        }
+        else
+        {
+            anim.SetInteger("Transition", 1);
+
+        }
+
         // if player direction equals 0 I want it to be the last angle, so the player doesn't swap directions if idle
         if (player.Direction.x > 0)
         {

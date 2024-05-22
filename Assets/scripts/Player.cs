@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private bool _isChopping;
     private bool _isDigging;
     private bool _isWatering;
+    private bool _isCasting;
 
     [HideInInspector] public int handlingObj = 0;
     // [HideInInspector] public int handlingObj;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
     public bool IsChopping { get => _isChopping; set => _isChopping = value; }
     public bool IsDigging { get => _isDigging; set => _isDigging = value; }
     public bool IsWatering { get => _isWatering; set => _isWatering = value; }
+    public bool IsCasting { get => _isCasting; set => _isCasting = value; }
 
     private void Start()
     {
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour
         OnChop();
         OnDig();
         OnWatering();
+        OnCasting();
     }
 
     private void FixedUpdate()
@@ -158,6 +161,19 @@ public class Player : MonoBehaviour
             {
                 playerItems.CurrentWater -= 0.01f;
             }
+        }
+    }
+    void OnCasting()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _isCasting = true;
+            _speed = 0;
+        }
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            _isCasting = false;
+            _speed = _initialSpeed;
         }
     }
     #endregion
